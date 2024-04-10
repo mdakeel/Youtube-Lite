@@ -19,24 +19,38 @@ import { IoIosArrowForward } from "react-icons/io";
 export const Sidebar = () => {
 
     const sidebarItems = [
-        { icons: <CiHome size={"24px"} />, title: "Home"},
-        { icons: <img src={short} alt="" className='w-6 '/>, title: "Shorts"},
-        { icons: <MdOutlineSubscriptions size={"24px"} className='text-gray-600' />, title: "Subscriptions"}
+        { icons: <CiHome size={"20px"} />, title: "Home"},
+        { icons: <img src={short} alt="" className='w-5 '/>, title: "Shorts"},
+        { icons: <MdOutlineSubscriptions size={"20px"} className='text-gray-600' />, title: "Subscriptions"}
     ]
 
     const sidebarYou = [
-        {icons: <VscAccount size={"23px"} className='text-gray-700' />, title: "Your Channel"},
-        {icons: <GoHistory size={"24px"} />, title: "History"},
-        {icons: <GoVideo size={"23px"}  className='text-gray-700' />, title: "Your videos"},
-        {icons: <MdOutlineWatchLater size={"25px"} className='text-gray-700' />, title: "Watch later"},
-        {icons: <GrCut size={"23px"} className='text-gray-700' />, title: "Your clips"},
-        {icons: <GoChevronDown size={"24px"} />, title: "Show more"},
+        {icons: <VscAccount size={"20px"} className='text-gray-700' />, title: "Your Channel"},
+        {icons: <GoHistory size={"20px"} />, title: "History"},
+        {icons: <GoVideo size={"20px"}  className='text-gray-700' />, title: "Your videos"},
+        {icons: <MdOutlineWatchLater size={"20px"} className='text-gray-700' />, title: "Watch later"},
+        {icons: <GrCut size={"20px"} className='text-gray-700' />, title: "Your clips"},
+        {icons: <GoChevronDown size={"20px"} />, title: "Show more"},
         
     ]
 
     const sidebarSub = [
-        {icons: <img src={profile} alt='' className='rounded-full w-7 h-7' />, title: "Know Your Creator"},
-        {icons: <img src={profile} alt='' className='rounded-full w-7 h-7' />, title: "Know Your Creator"},
+        {icons: <img src={profile} alt='' className='rounded-full w-6 h-6' />, title: "Know Your Creator"},
+        {icons: <img src={profile} alt='' className='rounded-full w-6 h-6' />, title: "Know Your Creator"},
+    ]
+
+    const sidebarExplore = [
+        {icons: <VscAccount size={"20px"} className='text-gray-700' />, title: "Trending"},
+        {icons: <VscAccount size={"20px"} className='text-gray-700' />, title: "Shopping"},
+        {icons: <VscAccount size={"20px"} className='text-gray-700' />, title: "Music"},
+        {icons: <VscAccount size={"20px"} className='text-gray-700' />, title: "Movies"},
+        {icons: <VscAccount size={"20px"} className='text-gray-700' />, title: "Live"},
+        {icons: <VscAccount size={"20px"} className='text-gray-700' />, title: "Gaming"},
+        {icons: <VscAccount size={"20px"} className='text-gray-700' />, title: "News"},
+        {icons: <VscAccount size={"20px"} className='text-gray-700' />, title: "Sports"},
+        {icons: <VscAccount size={"20px"} className='text-gray-700' />, title: "Courses"},
+        {icons: <VscAccount size={"20px"} className='text-gray-700' />, title: "Fashion & Beauty"},
+        {icons: <VscAccount size={"20px"} className='text-gray-700' />, title: "Podcasts"},
     ]
 
   return (
@@ -47,7 +61,7 @@ export const Sidebar = () => {
                     {
                         sidebarItems.map((items, index) => {
                             return(
-                                <div key={index} className='flex my-1 items-center hover:bg-gray-100 px-2 space-x-6 py-2 rounded-md cursor-pointer first:bg-gray-100'>
+                                <div key={index} className='flex items-center hover:bg-gray-100 px-2 space-x-6 py-2 rounded-md cursor-pointer first:bg-gray-100'>
                                     {items.icons}
                                     <p className='text-[14px] '>{items.title}</p>
                                 </div>
@@ -63,7 +77,7 @@ export const Sidebar = () => {
                     {
                         sidebarYou.map((items, index) => {
                             return(
-                                <div key={index} className='flex my-1 items-center  hover:bg-gray-100 px-2 space-x-6 py-2 rounded-md cursor-pointer '>
+                                <div key={index} className='flex  items-center  hover:bg-gray-100 px-2 space-x-6 py-2 rounded-md cursor-pointer '>
                                     {items.icons}
                                     <p className='text-[14px]  '>{items.title}</p>
                                 </div>
@@ -79,7 +93,7 @@ export const Sidebar = () => {
                     {
                         sidebarSub.map((items, index) => {
                             return(
-                                <div key={index} className='flex my-1 items-center hover:bg-gray-100 px-2 space-x-6 py-2 rounded-md cursor-pointer '>
+                                <div key={index} className='flex items-center hover:bg-gray-100 px-2 space-x-6 py-2 rounded-md cursor-pointer '>
                                     {items.icons}
                                     <p className='text-[14px]  '>{items.title}</p>
                                 </div>
@@ -93,9 +107,9 @@ export const Sidebar = () => {
                 <div className='flex ml-6 mt-4 text-[17px] items-center font-medium cursor-pointer'><h3>Explore</h3></div>
                 <div className='m-4'>
                     {
-                        sidebarSub.map((items, index) => {
+                        sidebarExplore.map((items, index) => {
                             return(
-                                <div key={index} className='flex my-1 items-center hover:bg-gray-100 px-2 space-x-6 py-2 rounded-md cursor-pointer '>
+                                <div key={index} className='flex  items-center hover:bg-gray-100 px-2 space-x-6 py-2 rounded-md cursor-pointer '>
                                     {items.icons}
                                     <p className='text-[14px]  '>{items.title}</p>
                                 </div>
