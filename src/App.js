@@ -1,17 +1,17 @@
-
+import '@fontsource/roboto';
 import './App.css';
-import React from 'react';
-import { Navbar } from './components/Navbar';
-import { Sidebar } from './components/Sidebar';
+import {AllRoutes} from "./AllRoutes/CustomRoutes"
+import { BrowserRouter } from 'react-router-dom';
 
-const App = () => {
+function App() {
+
   return (
-    <div className="">
-  <Navbar />
-  <Sidebar />
-  </div>
-    
+    <div className="App">
+   <BrowserRouter>
+      <AllRoutes />
+      </BrowserRouter>
+    </div>
   );
-};
+}
 
 export default App;

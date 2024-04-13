@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 // images
 import logo from "../assets/logo.png"
 import profile from "../assets/profile-img.png"
@@ -8,13 +8,25 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { CiVideoOn } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
+import { MdKeyboardVoice } from "react-icons/md";
 
-export const Navbar = () => {
+
+
+export const Navbar = () => { 
+  
+  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+ 
+
   return (
     <div className='w-full fixed top-0 z-10'>
     <div className='flex justify-between px-[25px] z-10 bg-white '>
         <div className='flex items-center space-x-3 cursor-pointer'>
-        <AiOutlineMenu  size={"22px"} className='text-gray-600' />
+        <AiOutlineMenu onClick={toggleMenu} size={"22px"} className='text-gray-600' />
         <img src={logo} width={"115px"} alt="" className='px-3'/>
         </div>
               <div className="flex items-center w-[44%] m-2 space-x-4 cursor-pointer"> 
@@ -28,7 +40,7 @@ export const Navbar = () => {
                 />
                  <button className=" px-4 py-[8px] border border-gray-300 rounded-r-full bg-gray-50 hover:bg-gray-100 cursor-pointer"><CiSearch size={"24px"} className='text-gray-600' /></button>
                  </div>  
-                 <div className="bg-gray-100 p-[10px] rounded-full hover:bg-gray-200" ><CiVideoOn size={"20px"} className='text-gray-600'/></div>
+                 <div className="bg-gray-100 p-[10px] rounded-full hover:bg-gray-200 " ><MdKeyboardVoice size={"20px"} className='text-gray-900 '/></div>
                  
               </div>
               
