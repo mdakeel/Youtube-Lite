@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axiox from "axios"
 import { YOUTUBE_VIDEOS_API} from '../Constant/YouTube'
 import { VideoCart } from './VideoCart'
+import { Link } from "react-router-dom"
 
 export const Feed = () => {
    const [video, setVideo] = useState([]);
@@ -21,11 +22,14 @@ export const Feed = () => {
   }, []);
 
   return (
-    <div className='flex lg:w-[84%] lg:ml-[16%]  py-[120px] px-4 grid lg:grid-cols-3 sm:grid-cols-2  gap-4'>
+    <div className='flex   pt-[120px] p-4 grid lg:grid-cols-3 sm:grid-cols-2  gap-4'>
       {
         video.map((item) => {
           return (
-            <VideoCart key={item.id} item = {item} />
+            <Link to={`/watch?v=${item.id}`} key={item.id}>
+               <VideoCart key={item.id} item = {item} />
+            </Link>
+           
           )
         })
       }

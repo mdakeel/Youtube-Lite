@@ -8,7 +8,7 @@ export const Home = () => {
     <>
     <div className=''>
     <Sidebar />
-    <div className='flex flex-col'>
+    <div className='flex flex-col lg:w-[84%] lg:ml-[16%]'>
     <Buttons />
     <Feed />
     </div>
