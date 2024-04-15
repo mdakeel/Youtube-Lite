@@ -6,7 +6,7 @@ import { Buttons } from './Buttons'
 export const Home = () => {
   return (
     <>
-    <div className='flex '>
+    <div className=''>
     <Sidebar />
     <div className='flex flex-col'>
     <Buttons />

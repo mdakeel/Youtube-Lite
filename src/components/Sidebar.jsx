@@ -34,7 +34,6 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { RiFlagLine } from "react-icons/ri";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import { RiFeedbackLine } from "react-icons/ri";
-import { Buttons } from "./Buttons";
 import { SlLike } from "react-icons/sl";
 import { Navbar } from "./Navbar";
 
@@ -177,7 +176,7 @@ export const Sidebar = () => {
   return (
     <>
       <Navbar />
-        <div className="lg:flex mt-[55px] hidden h-[calc(100vh-3.5rem)] w-[16%]  left-0  overflow-y-scroll overflow-x-hidden  ">
+        <div className="lg:flex mt-[50px] hidden h-[calc(100vh-3rem)] w-[16%] fixed bg-white  left-0  overflow-y-scroll overflow-x-hidden  ">
           <div className="">
             {/* Main menu */}
             <div className="m-4">
