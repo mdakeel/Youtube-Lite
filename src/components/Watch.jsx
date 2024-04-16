@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import API_KEY from "../Constant/YouTube";
-import azra from "../assets/azra.png";
 
 // react icons
 import { SlLike } from "react-icons/sl";
@@ -16,7 +15,7 @@ import { CiFaceSmile } from "react-icons/ci";
 import { HiOutlineCurrencyDollar } from "react-icons/hi2";
 import { LiveChat } from "./LiveChat";
 
-export const Watch = () => {
+export const Watch = ({item}) => {
   const [singlevideo, setSingleVideo] = useState("");
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v");
@@ -59,7 +58,7 @@ export const Watch = () => {
         <div className="flex justify-between items-center mt-2">
           <div className="flex justify-between items-center  w-[33%]">
             <div className="flex items-center  space-x-3 cursor-pointer ">
-              <img src={azra} alt="" className="w-10 h-10 rounded-full" />
+              <img src={singlevideo?.snippet?.thumbnails?.high?.url} alt="" className="w-10 h-10 rounded-full" />
               <div className="flex flex-col grid   ">
                 <h2 className="font-semibold    text-[15px]">{singlevideo?.snippet?.channelTitle}</h2>
                 <div className="flex items-center -mt-[11px] text-[13px] space-x-2">

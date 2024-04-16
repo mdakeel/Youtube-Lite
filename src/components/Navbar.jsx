@@ -74,13 +74,13 @@ export const Navbar = () => {
                  
                  {
                         (suggestion && searchSuggestion.length !== 0) &&
-                        <div className="absolute top-3 z-50 w-[30%] py-5 bg-white shadow-lg mt-12 rounded-lg border border-gray-200">
+                        <div className="absolute top-1 z-50 w-[30%] py-5 bg-white shadow-lg mt-12 rounded-lg border border-gray-200">
                             <ul>
                                 {
                                     searchSuggestion.map((text, idx) => {
                                         return (
                                             <div className="flex items-center px-4 hover:bg-gray-100">
-                                                <CiSearch size="24px" />
+                                                <CiSearch size="20px" />
                                                 <li className="px-2 py-1 cursor-pointer text-md font-medium">{text}</li>
                                             </div>
                                         )
