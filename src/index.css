@@ -25,3 +25,16 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+@layer utilities {
+    /* hide scrollbar from chrome, safari and opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* hide scroll bar for IE , Edg and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;  
+        scrollbar-width: none;
+    }
+}

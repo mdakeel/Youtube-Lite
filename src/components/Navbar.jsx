@@ -1,4 +1,10 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux"
+import { setCategory, setSearchSuggestion } from "../utils/appSlice";
+import { useState } from "react";
+import { SEARCH_SUGGESTIONS_API } from "../Constant/YouTube";
+import axios from "axios";
+
 // images
 import logo from "../assets/logo.png"
 import profile from "../assets/profile-img.png"
@@ -11,15 +17,46 @@ import { CiSearch } from "react-icons/ci";
 import { MdKeyboardVoice } from "react-icons/md";
 
 
+export const Navbar = () => {
+  const [input, setInput] = useState("");
+  const [suggestion, setSuggestion] = useState(false);
+  const dispatch = useDispatch();
+  const { searchSuggestion } = useSelector((store) => store.app);
 
-export const Navbar = () => { 
-  
+  const searchVideo = () => {
+      dispatch(setCategory(input));
+      setInput("");
+  }
 
+
+  const showSuggestion = async () => {
+      try {
+          const res = await axios.get(SEARCH_SUGGESTIONS_API + input);
+          dispatch(setSearchSuggestion(res?.data[1]))
+      } catch (error) {
+          console.log(error);
+      }
+  }
+
+  const openSuggestion = () => {
+      setSuggestion(true);
+  }
+
+  useEffect(() => {
+      const timer = setTimeout(() => {
+          showSuggestion();
+      }, 200)
+
+      return () => {
+          clearTimeout(timer);
+      }
+
+  }, [input])
   return (
     <div className='w-full fixed top-0 z-10'>
     <div className='flex justify-between pl-[16px] pr-[25px] z-10 bg-white '>
         <div className='flex items-center space-x-2 cursor-pointer'>
-          <div className='hover:bg-gray-200 p-2 rounded-full '>     <AiOutlineMenu  size={"22px"} /></div>
+          <div className='hover:bg-gray-200 p-2 rounded-full '><AiOutlineMenu  size={"22px"} /></div>
    
         <img src={logo} width={"115px"} alt="" className='px-3'/>
         </div>
@@ -27,13 +64,32 @@ export const Navbar = () => {
               <div className='flex w-full '>          
                 <input
                   type="search"
-                  id="search"
+                  value={input} onFocus={openSuggestion} onChange={(e) => setInput(e.target.value)}
                   className="w-full   px-4 border  py-[8px] border-gray-300 outline-none rounded-l-full "
                   placeholder="Search "
                   required
                 />
-                 <button className=" px-4 py-[8px] border border-gray-300 rounded-r-full bg-gray-50 hover:bg-gray-100 cursor-pointer"><CiSearch size={"24px"} className='text-gray-600' /></button>
+                 <button onClick={searchVideo} className=" px-4 py-[8px] border border-gray-300 rounded-r-full bg-gray-50 hover:bg-gray-100 cursor-pointer"><CiSearch size={"24px"} className='text-gray-600' /></button>
                  </div>  
+                 
+                 {
+                        (suggestion && searchSuggestion.length !== 0) &&
+                        <div className="absolute top-3 z-50 w-[30%] py-5 bg-white shadow-lg mt-12 rounded-lg border border-gray-200">
+                            <ul>
+                                {
+                                    searchSuggestion.map((text, idx) => {
+                                        return (
+                                            <div className="flex items-center px-4 hover:bg-gray-100">
+                                                <CiSearch size="24px" />
+                                                <li className="px-2 py-1 cursor-pointer text-md font-medium">{text}</li>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </ul>
+                        </div>
+                    }
+
                  <div className="bg-gray-100 p-[10px] rounded-full hover:bg-gray-200 " ><MdKeyboardVoice size={"20px"} className='text-gray-900 '/></div>
                  
               </div>

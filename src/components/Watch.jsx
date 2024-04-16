@@ -11,7 +11,10 @@ import { PiShareFatLight } from "react-icons/pi";
 import { LiaDownloadSolid } from "react-icons/lia";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { BsThreeDotsVertical } from "react-icons/bs";
-
+import { BsChevronDown } from "react-icons/bs";
+import { CiFaceSmile } from "react-icons/ci";
+import { HiOutlineCurrencyDollar } from "react-icons/hi2";
+import { LiveChat } from "./LiveChat";
 
 export const Watch = () => {
   const [singlevideo, setSingleVideo] = useState("");
@@ -37,8 +40,9 @@ export const Watch = () => {
   console.log(singlevideo)
 
   return (
-    <div className="flex text-2xl text-black mt-[80px] px-[77px]">
-      <div>
+    <div className="flex text-2xl w-[100%] text-black mt-[80px] px-[77px]">
+      {/* left div */}
+      <div className="">
         <iframe
           width="930"
           height="500"
@@ -49,7 +53,7 @@ export const Watch = () => {
           allowFullScreen
           className="rounded-xl"
         ></iframe>
-        <h1 className="font-bold mt-3  text-lg">
+        <h1 className="font-bold mt-4 text-lg">
           {singlevideo?.snippet?.title}
         </h1>
         <div className="flex justify-between items-center mt-2">
@@ -76,13 +80,34 @@ export const Watch = () => {
           </div>
         </div>
       </div>
-      <div className="w-[100%] border border-gray-300 ml-2 rounded-lg h-fit">
-        <div className="flex justify-between items-center">
-            <h1>Top Chat</h1>
-            <BsThreeDotsVertical />
+
+      {/* right side div */}
+      <div className="w-[100%] border border-gray-300 ml-4 rounded-xl h-fit ">
+        {/* top */}
+        <div className="flex justify-between items-center border-b border-gray-200 px-6 py-2 ">
+          <div className="flex items-center space-x-1">
+          <h1 className="text-[15px] font-medium">Top Chat</h1>
+          <BsChevronDown size={"19"} />
+          </div>
+            <BsThreeDotsVertical size={"20"} />
         </div>
-        <div className="overflow-y-autto h-[29rem]">
-            Chats
+
+        {/* chat */}
+        <div className="overflow-y-auto h-[28rem] py-2 px-6">
+            <LiveChat />
+        </div>
+
+        {/* bottom */}
+        <div className="border-t border-gray-200">
+          <div className="flex m-2 justify-between space-x-2 px-5">
+            {/* <img src={azra} alt="" className="w-9 h-8 rounded-full "/> */}
+            <div className="flex justify-between items-center bg-gray-100 px-4 w-full rounded-full">
+            <input className="outline-none bg-none bg-transparent text-[14px] w-full " type="text" placeholder="Chat..." />
+            <CiFaceSmile />
+            </div>
+            <div className="bg-gray-100 hover:bg-gray-200 cursor-pointer p-2 rounded-full"><HiOutlineCurrencyDollar size={"22"}/></div>
+          </div>
+          <div className="text-[15px] hover:bg-gray-100 py-1 font-semibold text-center border-t border-gray-200 cursor-pointer">Hide chat</div>
         </div>
       </div>
     </div>
