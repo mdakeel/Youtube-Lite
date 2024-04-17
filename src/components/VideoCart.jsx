@@ -27,11 +27,11 @@ useEffect(()=>{
             <div className='ml-2 px-1'>
             <h1 className='font-bold'>{item.snippet.title}</h1>
             <p className='text-sm text-gray-500'>{item.snippet.channelTitle}</p>
-            {/* <div className='flex  items-center space-x-1 '>
+            <div className='flex  items-center space-x-1 '>
                 <p className='text-[13px] text-gray-500'>{item.statistics.viewCount}</p>
                 <p className='text-[6px] text-gray-500 font-extrabold' >o</p>
                 <p className='text-[13px] text-gray-500'>2 months ago</p>
-           </div> */}
+           </div>
             </div>
         </div>
        

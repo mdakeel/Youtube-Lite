@@ -2,14 +2,14 @@
 import React, { useEffect} from 'react'
 import axios from "axios";
 import API_KEY, { YOUTUBE_VIDEOS_API } from '../Constant/YouTube';
-import { VideoCart } from './VideoCart';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { setHomeVideo } from '../utils/appSlice';
+import { WatchVideo } from './WatchVideo';
 
 
 
-export const Feed = () => {
+export const WatchFeed = () => {
     const { video, category } = useSelector((store) => store.app);
     const dispatch = useDispatch();
     // jab bhi api call/network call kr rhe ho toh apko hmesha useEffect use krna hai
@@ -40,13 +40,13 @@ export const Feed = () => {
     }, [category]);
 
     return (
-        <div className='flex pt-[120px] p-4 grid lg:grid-cols-3 sm:grid-cols-2  gap-4'>
+        <div className=' '>
             {
                 video.map((item) => {
                     console.log(item);
                     return (
                         <Link to={`/watch?v=${typeof item.id === 'object' ? item.id.videoId : item.id }`} key={typeof item.id === 'object' ? item.id.videoId : video.id } >
-                            <VideoCart item={item} />
+                            <WatchVideo item={item} />
                         </Link>
 
                     )

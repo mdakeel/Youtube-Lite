@@ -1,9 +1,11 @@
 import React from "react";
 import azra from "../assets/azra.png";
 import profile from "../assets/profile-img.png"
-import logo from '../assets/logo.png'
+
 
 export const ChatMessage = () => {
+
+  
   return (
     
     <>
