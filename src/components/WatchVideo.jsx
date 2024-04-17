@@ -26,7 +26,7 @@ useEffect(()=>{
                   <h1 className='text-[13px] leading-normal font-medium'>{item.snippet.title}</h1>
                   <h3 className='text-[12px] font-medium  '>{item.snippet.channelTitle}</h3>
                   <div className='flex items-center space-x-2'>
-                    <p className='text-[12px] '>{item.statistics.viewCount}</p>
+                    {/* <p className='text-[12px] '>{item.statistics.viewCount}</p> */}
                     <p className='text-[12px] '>1 year ago</p>
                   </div>
                 </div>
