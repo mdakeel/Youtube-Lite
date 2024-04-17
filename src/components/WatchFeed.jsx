@@ -5,7 +5,7 @@ import API_KEY, { YOUTUBE_VIDEOS_API } from '../Constant/YouTube';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { setHomeVideo } from '../utils/appSlice';
-import { WatchVideo } from './WatchVideo';
+import {WatchVideo} from './WatchVideo'
 
 
 
