@@ -23,7 +23,7 @@ export const Buttons = () => {
       buttonList.map((buttonName, index) => {
         return (
         <div key={index} >
-          <button onClick={() => {videoByTag(buttonName)}} className={`${active == buttonName ? "bg-slate-900 text-white" : "bg-gray-100"} bg-gray-100 w-fit  font-sans mx-2 px-4 py-[6px] my-3 text-[14px]  font-medium   rounded-lg  `}><span className='whitespace-nowrap '>{buttonName}</span></button>
+          <button onClick={() => {videoByTag(buttonName)}} className={`${active === buttonName ? "bg-slate-900 text-white" : "bg-gray-100"} bg-gray-100 w-fit  font-sans mx-2 px-4 py-[6px] my-3 text-[14px]  font-medium   rounded-lg  `}><span className='whitespace-nowrap '>{buttonName}</span></button>
         </div>
      
       )
