@@ -48,7 +48,7 @@ export const Navbar = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [input]);
+  }, [input, showSuggestion]);
   return (
     <div className="w-full fixed top-0 z-10 ">
       <div className="flex justify-between pl-[16px] w-full md:pr-[25px]  z-10 bg-white ">

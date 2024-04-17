@@ -37,7 +37,7 @@ export const WatchFeed = () => {
         } else {
             fetchVideoByCategory(category);
         }
-    }, [category]);
+    }, [category,  fetchingYoutubeVideo, fetchVideoByCategory]);
 
     return (
         <div className=' '>

@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import API_KEY, { YOUTUBE_VIDEOS_API } from "../Constant/YouTube";
 // react icons
 import { SlLike } from "react-icons/sl";
 import { SlDislike } from "react-icons/sl";
@@ -16,6 +15,7 @@ import { LiveChat } from "./LiveChat";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { Comment } from "./Comment";
 import { WatchFeed } from "./WatchFeed";
+import API_KEY from "../Constant/YouTube";
 
 export const Watch = () => {
   const [singlevideo, setSingleVideo] = useState("");
@@ -42,8 +42,7 @@ export const Watch = () => {
 
   const getSingleVideo = async () => {
     try {
-      const res = await axios.get(
-        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${API_KEY}`
+      const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${API_KEY}`
       );
       console.log(res?.data?.items[0]);
       setSingleVideo(res?.data?.items[0]);
@@ -54,7 +53,7 @@ export const Watch = () => {
 
   useEffect(() => {
     getSingleVideo();
-  }, []);
+  }, [getSingleVideo]);
 
   console.log(singlevideo);
 

@@ -37,7 +37,7 @@ export const Feed = () => {
         } else {
             fetchVideoByCategory(category);
         }
-    }, [category]);
+    }, [category,fetchingYoutubeVideo, fetchVideoByCategory]);
 
     return (
         <div className='flex pt-[120px] p-4 grid lg:grid-cols-3 sm:grid-cols-2  gap-4'>

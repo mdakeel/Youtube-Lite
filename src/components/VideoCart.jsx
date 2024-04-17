@@ -15,7 +15,7 @@ export const VideoCart = ({item}) => {
 
 useEffect(()=>{
     getYoutubeChannelName();
-},[])
+},[getYoutubeChannelName])
 
   return (
     <>
