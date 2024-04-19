@@ -24,7 +24,7 @@ export const WatchFeed = () => {
     }
     const fetchVideoByCategory = async (category) => {
         try {
-            const res = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${category}&type=video&key=${API_KEY}`);
+            const res = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${category}&type=video&key=${API_KEY}`);
             dispatch(setHomeVideo(res?.data?.items))
             console.log(res)
         } catch (error) {
